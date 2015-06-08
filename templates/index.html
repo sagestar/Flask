@@ -1,2 +1,17 @@
-<h1>Hello World!</h1>
-<a href="user/ice" >link</a>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <h1>你好, {% if name %}{{ name }}{% else %}陌生人{% endif %}!</h1>
+</div>
+{{ wtf.quick_form(form) }}
+<p><a href="user/ice" >link</a></p>
+
+        <p>现在的时间是： {{ moment(current_time).format('LLLL')}}.</p>
+        <p>那是 {{ moment(current_time).fromNow(refresh=True) }}</p>
+
+{% endblock %}
