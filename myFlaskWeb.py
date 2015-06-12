@@ -74,14 +74,14 @@ def make_shell_context():
     return dict(app=app, db=db, User=User, Role=Role)
 manage.add_command("shell", Shell(make_context=make_shell_context))
 
-'''
+"""
 def send_email(to, subject, template, **kwargs):
     msg = Message('[Flasky]' + subject,
                   sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
     mail.send(msg)
-'''
+"""
 
 def send_async_email(app, msg):
     with app.app_context():
